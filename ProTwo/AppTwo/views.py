@@ -3,4 +3,11 @@ from django.http import HttpResponse
 
 # Create your views here.
 def test(request):
-    return HttpResponse("<em>My Second App </em>")
+    message = {
+        'help_me': 'Help me from views.py of ProTwo!'
+    }
+    return render(
+        request,
+        'ProTwo/index.html',
+        context=message
+    )

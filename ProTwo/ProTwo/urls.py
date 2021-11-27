@@ -18,6 +18,6 @@ from django.urls import path
 from AppTwo import views
 
 urlpatterns = [
-    path('test', views.test, name='test'),
+    path('', views.test, name='test'),
     path('admin/', admin.site.urls),
 ]
