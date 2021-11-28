@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Kakashi Hatake</title>
-
-        <link
-            rel="stylesheet"
-            href="{% static 'css/style.css' %}"
-        />
+        <meta charset="utf-8" />
+        <title>Django Level Two</title>
+        <link rel="stylesheet" href="{% static 'first_app/css/style.css' %}"/>
     </head>
     <body>
-        <h1>Hello this is Kakashi Hatake</h1>
-        <img
-            src="{% static 'images/kakashi.jpg' %}"
-            alt="Kakashi Image not Found!"
-        />
+        <h1>Fetching Records</h1>
+        <h2>Here are your access records:</h2>
+        <div class="djangtwo">
+            {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Date Accessed</th>
+                </thead>
+
+                {% for acc in access_records %}
+                <tr>
+                    <td>{{ acc.name }}</td>
+                    <td>{{ acc.date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            {% else %}
+            <p>No Access Records. Table Not Created.</p>
+            {% endif %}
+        </div>
     </body>
 </html>
